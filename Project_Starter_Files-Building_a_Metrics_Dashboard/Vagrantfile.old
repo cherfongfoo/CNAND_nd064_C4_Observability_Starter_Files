@@ -13,8 +13,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "opensuse/Leap-15.2.x86_64"
-  # config.vm.box_version = "15.2.31.199"
-  config.vm.box_version = "15.2.31.566"
+  config.vm.box_version = "15.2.31.289"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -37,6 +36,12 @@ Vagrant.configure("2") do |config|
   #config.vm.network "forwarded_port", guest: 8000, host: 8888
   config.vm.network "forwarded_port", guest: 8888, host: 8888
   config.vm.network "forwarded_port", guest: 8000, host: 8000
+  config.vm.network "forwarded_port", guest: 6443, host: 6443
+  config.vm.network "forwarded_port", guest: 31500, host: 31500
+  config.vm.network "forwarded_port", guest: 31061, host: 31061
+  for p in 30000..30200 # expose NodePort IP's
+    config.vm.network "forwarded_port", guest: p, host: p, protocol: "tcp"
+    end
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -79,10 +84,9 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+     sudo zypper --non-interactive install apparmor-parser
+  SHELL
 
   args = []
       config.vm.provision "k3s shell script", type: "shell",
