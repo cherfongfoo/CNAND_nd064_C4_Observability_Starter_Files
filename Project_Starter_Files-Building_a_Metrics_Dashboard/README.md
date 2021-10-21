@@ -12,7 +12,7 @@ Screensots:
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 
 Screenshots:
-[Grafana Homepage](answer-img/Grafana_homePage.png)
+[Grafana Homepage](answer-img/Grafana_HomePage.png)
 
 ## Create a Basic Dashboard
 *TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
