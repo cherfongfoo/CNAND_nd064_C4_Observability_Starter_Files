@@ -30,11 +30,11 @@ For SLO (service Level Object) it defines the objectives we want to achieve. In 
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
 
-- error rate of our endpoints
-- Tracking when each http server error happen
-- server/service uptime availablility
-- amount of traffic that webserver able to handle before issues happens.
-- pod resource monitoring such as disk usage, cpu/mem usage
+- error rate of our endpoints so that we know how often it is affecting the customer.
+- Track when each http server error happen so that we could pin point when/how it happen.
+- server/service uptime availablility to ensure customer can access our app anytime.
+- Track amount of traffic that webserver able to handle before issues happens, so that we can rectify any resource issue.
+- pod resource monitoring such as disk usage, cpu/mem usage to see if downtime is down to resource issue.
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
@@ -78,19 +78,37 @@ Screenshots:
 - uptime
 - http requests rate
 - http requests time
-- cpu usage
+- cpu/mem usage
 
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
 
+### Uptime of services
+- Backend svc uptime 
+- Frontend svc uptime
+- Trail svc uptime
+
+### Success/Error rate
+- No of 5XX, 4XX of all services
+- Number of successful/failure requests per 30 sec
+
+### Response time
+- average success response time
+- median response time
+- 90th percentile reponse time
+
+### Resource usage
+- CPU usage
+- Mem usage
+
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
 
-Uptime of services
+Uptime of services: 
 [Final Dashboard 1](answer-img/FinalDashboard_1.png) 
 
-Error rate and Average Response Time
+Error rate and Average Response Time: 
 [Final Dashboard 2](answer-img/FinalDashboard_2.png) 
 
-Median and 90th percentile response time and resouce usage like CPU and MEM
+Median and 90th percentile response time and resouce usage like CPU and MEM: 
 [Final Dashboard 3](answer-img/FinalDashboard_3.png)|
