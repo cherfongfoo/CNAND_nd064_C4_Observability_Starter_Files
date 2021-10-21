@@ -4,8 +4,8 @@ metadata:
   name: backend
   annotations:
     sidecar.jaegertracing.io/inject: "true"
-  #labels:
-  #  app: backend
+  labels:
+   app: backend
 spec:
   replicas: 1
   selector:
